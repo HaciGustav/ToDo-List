@@ -18,15 +18,5 @@ const task =
 `
 
 addBtn.addEventListener("click", ()=>{
-    console.log("first")
-    document.getElementsByName("ul").innerHTML = (
-    `
-    <li class="task">
-                <p class="task-content">Lorem, ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sunt voluptate commodi error et laudantium at natus delectus maxime in.</p>
-                <div class="icon-wrap">
-                    <span class="done icon"><i class="fa-solid fa-check done"></i></span>
-                <span class="icon"><i class="fa-solid fa-x delete"></i></span>
-                </div>
-            </li>
-    `)
+    
 })
