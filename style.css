@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/bg-img.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.container{
+    height: min(100vh - 5rem);
+    width: min(100vw - 10rem);
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.192);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+    font-weight: 600;
+}
+.add-btn{
+    padding: 0.3rem;
+    width: 5rem;
+    background-color: rgba(15, 15, 55, 0.692);
+    border:none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.input-wrap{
+    border-radius:0 0.5rem 0.5rem 0;
+    padding-right: 0;
+    min-width: 20rem;
+    width: 60%;;
+    min-width: 20rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content:space-between;
+    margin-top: 5rem;
+
+}
+.input-wrap input{
+    width: calc(100% - 4.5rem);
+    min-width: 15rem;
+    display: inline-block;
+    height: 100%;
+    border:none;
+    padding: 1rem;
+    border-radius: 0.5rem ;
+
+}
+.task-list{
+    min-width: 20rem;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    font-weight: 600;
+    
+    
+}
+.icon-wrap{
+    /* border: 2px solid red; */
+    width: 8rem;
+    display: flex;
+    align-items: center;
+}
+.icon-wrap .icon{
+    width: 2rem;
+    height: 2rem;
+    /* border: 2px solid red; */
+    border-radius: 50%;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.task{
+    min-height: 2rem;
+    /* border: 2px solid red; */
+    background-color: rgba(0, 0, 0, 0.199);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.task p{
+    word-wrap: break-word;
+}
+
+
+/* 3d denemesi */
+.task-list, .input-wrap{
+transform: skewY(-5deg);
+}
+.input-wrap::before, .task::before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -40px;
+    width: 40px;
+    height: 100%;
+    /* background-color: rgb(0, 0, 0); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* border-radius: 0.5rem 0 0 0.5rem; */
+    transform: skewY(15deg);
+}
+.input-wrap::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 100%;
+    height: 10px;
+    border-radius: 0 0 0.5rem 0 ;
+    background-color: rgba(0, 0, 0, 0.116);
+    transform-origin: right;
+    transform: skewx(75deg);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+ul.task-list li::after{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 100%;
+    height: 10px;
+    /* border: 2px solid red; */
+    background-color: rgba(0, 0, 0, 0.116);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transform-origin: right;
+    transform: skewx(75deg);
+    
+}
+
+
