@@ -9,80 +9,72 @@ body{
     justify-content: center;
     align-items: center;
     background-image: url(./img/bg-img.jpg);
-    background-position: center;
+    background-position:bottom;
     background-size: cover;
 }
 .container{
     height: min(100vh - 5rem);
-    width: min(100vw - 10rem);
+    width: min(100vw - 3rem);
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.192);
+    background-color: rgba(0, 0, 0, 0.014);
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 1rem;
     overflow: auto;
     font-weight: 600;
+    animation: falldown 1s ease-out 1;
 }
 .add-btn{
     padding: 0.3rem;
     width: 5rem;
-    background-color: rgba(15, 15, 55, 0.692);
+    background-color: #3b52499d;
     border:none;
-    border-radius: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
     font-weight: 600;
+    color: white;
+}
+.add-btn:active{
+    background-color: #3b5249;
 }
 
 .input-wrap{
     border-radius:0 0.5rem 0.5rem 0;
     padding-right: 0;
-    min-width: 20rem;
-    width: 60%;;
-    min-width: 20rem;
-    background-color: rgb(255, 255, 255);
+    min-width: 15rem;
+    width: 60%;
+    max-width: 30rem;
+    background-color: rgba(255, 255, 255, 0.062);
     display: flex;
     justify-content:space-between;
     margin-top: 5rem;
 
 }
-.input-wrap input{
+input{
     width: calc(100% - 4.5rem);
-    min-width: 15rem;
+    min-width: 10rem;
     display: inline-block;
     height: 100%;
     border:none;
     padding: 1rem;
-    border-radius: 0.5rem ;
-
+    background-color: rgba(255, 255, 255, 0.452);
+    font-size: 1rem;
+}
+input:focus{
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.678) ;
 }
 .task-list{
     min-width: 20rem;
     width: 60%;
+    max-width: 30rem;
+    min-width: 15rem;
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
     font-weight: 600;
-    
-    
-}
-.icon-wrap{
-    /* border: 2px solid red; */
-    width: 8rem;
-    display: flex;
-    align-items: center;
-}
-.icon-wrap .icon{
-    width: 2rem;
-    height: 2rem;
-    /* border: 2px solid red; */
-    border-radius: 50%;
-    padding: 0.3rem;
-    font-size: 1.5rem;
-    text-align: center;
 }
 .task{
     min-height: 2rem;
-    /* border: 2px solid red; */
     background-color: rgba(0, 0, 0, 0.199);
     padding: 0.5rem;
     display: flex;
@@ -92,6 +84,33 @@ body{
 .task p{
     word-wrap: break-word;
 }
+.icon-wrap{
+    width: 4rem;
+    display: flex;
+    align-items: center;
+}
+.icon{
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+i{
+    transition: all 0.5s;
+    width: 100%;
+    height: 100%;
+    padding: 0.2rem;
+}
+.delete:hover{
+    color: red;
+    transform: scale(1.2);
+}
+.done:hover{
+    color: green;
+    transform: scale(1.2);
+}
+
+
 
 
 /* 3d denemesi */
@@ -105,9 +124,8 @@ transform: skewY(-5deg);
     left: -40px;
     width: 40px;
     height: 100%;
-    /* background-color: rgb(0, 0, 0); */
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    /* border-radius: 0.5rem 0 0 0.5rem; */
+    background-color: rgba(0, 0, 0, 0.253);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.308) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     transform: skewY(15deg);
 }
 .input-wrap::after{
@@ -123,19 +141,42 @@ transform: skewY(-5deg);
     transform: skewx(75deg);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-ul.task-list li::after{
+li::after{
     content: "";
     position: absolute;
     top: -10px;
     left: -20px;
     width: 100%;
     height: 10px;
-    /* border: 2px solid red; */
     background-color: rgba(0, 0, 0, 0.116);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     transform-origin: right;
-    transform: skewx(75deg);
-    
+    transform: skewX(75deg);
+}
+ul li:last-child p::after{
+    content: "";
+    position: absolute;
+    top: 130%;
+    left: -20px;
+    width: 95%;
+    height: 5px;
+    transform: skewX(75deg);
+    background-color: rgba(0, 0, 0, 0);
+    filter: blur(10px);
+    /* border: 2px solid red; */
+    box-shadow: 50px -10px 10px rgb(0, 0, 0) ;
 }
 
 
+
+@keyframes falldown {
+    0%{
+        transform: translateY(-1000px)
+    }
+    90%{
+        transform: translateY(20px)
+    }
+    100%{
+        transform: translateY(0)
+    }
+}
