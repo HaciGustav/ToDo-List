@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 body{
     height: 100vh;
@@ -27,6 +28,8 @@ body{
     font-weight: 600;
     animation: falldown 1s ease-out 1;
 }
+
+
 .add-btn{
     padding: 0.3rem;
     width: 5rem;
@@ -35,6 +38,8 @@ body{
     border-radius: 0 0.5rem 0.5rem 0;
     font-weight: 600;
     color: white;
+    cursor: pointer;
+    
 }
 .add-btn:active{
     background-color: #3b5249;
@@ -45,7 +50,7 @@ body{
     padding-right: 0;
     min-width: 15rem;
     width: 60%;
-    max-width: 30rem;
+    max-width: 35rem;
     background-color: rgba(255, 255, 255, 0.062);
     display: flex;
     justify-content:space-between;
@@ -60,7 +65,9 @@ input{
     border:none;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.452);
-    font-size: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    
 }
 input:focus{
     outline: none;
@@ -69,21 +76,26 @@ input:focus{
 .task-list{
     min-width: 20rem;
     width: 60%;
-    max-width: 30rem;
+    max-width: 35rem;
     min-width: 15rem;
     display: flex;
     flex-direction: column;
     font-weight: 600;
+    gap: 0.1rem;
+    
 }
 .task{
-    min-height: 2rem;
-    background-color: rgba(0, 0, 0, 0.199);
-    padding: 0.5rem;
+    min-height: 4rem;
+    background-color: rgba(0, 0, 0, 0.377);
+    color:rgba(255, 255, 255, 0.582);
+    padding: 1rem;
+    font-size: 1.2rem;
+    word-wrap: break-word;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.task p{
+.task-content{
     word-wrap: break-word;
 }
 .icon-wrap{
@@ -102,6 +114,7 @@ i{
     width: 100%;
     height: 100%;
     padding: 0.2rem;
+    cursor: pointer;
 }
 .delete:hover{
     color: red;
@@ -115,11 +128,15 @@ i{
 
 
 
-/* 3d denemesi */
+/* 3D part */
 .task-list, .input-wrap{
 transform: skewY(-5deg);
+position: relative;
 }
-.input-wrap::before, .task::before{
+.task-list li{
+    position: relative;
+}
+.input-wrap::before, li::before{
     content: "";
     position: absolute;
     top: -5px;
@@ -129,6 +146,7 @@ transform: skewY(-5deg);
     background-color: rgba(0, 0, 0, 0.253);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.308) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     transform: skewY(15deg);
+    /* outline: 2px solid red; */
 }
 .input-wrap::after{
     content: "";
@@ -143,6 +161,8 @@ transform: skewY(-5deg);
     transform: skewx(75deg);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+
+
 li::after{
     content: "";
     position: absolute;
@@ -170,12 +190,19 @@ ul li:last-child p::after{
 }
 /* For Javascript */
 .checked{
-    text-decoration: line-through;
+    text-decoration:line-through 2px black ;
+    
+}
+.deleted{
+    animation: delete 0.5s linear 1 forwards;
+    transition: animation;
+    /* transform: translateX(300px); */
+    /* opacity: 0; */
 }
 
 
 
-@keyframes falldown {
+ @keyframes falldown {
     0%{
         transform: translateY(-1000px)
     }
@@ -184,5 +211,19 @@ ul li:last-child p::after{
     }
     100%{
         transform: translateY(0)
+    }
+} 
+@keyframes delete {
+    0%{
+        transform: translateX(0);
+        opacity:1
+    }
+    90%{
+        transform: translateX(250px);
+        opacity:0.2
+    }
+    100%{
+        transform: translateX(450px);
+        opacity:0
     }
 }

@@ -1,39 +1,11 @@
 //? Button selectors //
 const addBtn = document.querySelector(".add-btn")
 const inputArea = document.querySelector(".input")
-// const doneBtn = document.querySelectorAll("i.done")
-// const delBtn = document.querySelectorAll("i.delete")
 const taskContent = document.querySelector(".task-content")
 const listItem = document.querySelectorAll(".task")
 const taskParent = document.querySelector(".task-list")
 
-
-addBtn.addEventListener("click", ()=>{
-    let taskParent = document.querySelector(".task-list")
-    let task = document.createElement("li")
-    task.className = "task"
-    
-    
-    if(inputArea.value){
-        addList()
-
-    }else{
-        inputArea.setAttribute("placeholder", "Please enter something to do")
-    }
-})
-taskParent.addEventListener("click", (e)=>{
-    if(e.target.classList.contains("delete")){
-        e.target.parentElement.parentElement.parentElement.remove()
-    }else if(e.target.classList.contains("done")){
-        e.target.parentElement.parentElement.previousElementSibling.classList.add("checked")
-    }
-})
-
-
-
-
-
-
+//list adding function
 function addList (){
     let taskParent = document.querySelector(".task-list")
     let task = document.createElement("li")
@@ -43,7 +15,7 @@ function addList (){
         taskParent.appendChild(task)
         //! P tag create and append
         let taskContent = document.createElement("p")
-        taskContent.className = "task-content"
+        taskContent.classList.add("task-content")
         taskContent.innerHTML = inputArea.value
         task.appendChild(taskContent)
         //! div tag create and append
@@ -77,15 +49,46 @@ function addList (){
 
 
 
+addBtn.addEventListener("click", ()=>{
+    let taskParent = document.querySelector(".task-list")
+    let task = document.createElement("li")
+    task.className = "task"
+    
+    
+    if(inputArea.value){
+        addList()
+        inputArea.value = ""
+
+    }else{
+        inputArea.setAttribute("placeholder", "Please enter something to do")
+    }
+})
+//?input with enter key
+document.addEventListener("keydown", (e)=>{
+    if(e.code == "Enter"){
+        addBtn.click()}
+})
+
+
+taskParent.addEventListener("click", (e)=>{
+    if(e.target.classList.contains("delete")){
+        e.target.parentElement.parentElement.parentElement.classList.add("deleted")
+        
+        setTimeout(() => {
+            e.target.parentElement.parentElement.parentElement.remove()
+        }, 1000);
+    }else if(e.target.classList.contains("done")){
+        e.target.parentElement.parentElement.previousElementSibling.classList.toggle("checked")
+        
+    }
+})
+
+window.onload = ()=>{
+    inputArea.focus()
+}
 
 
 
 
-// task.innerHTML = 
-//         `
-//         <p class="task-content">${inputArea.value}</p>
-//                     <div class="icon-wrap">
-//                         <span class="done icon"><i class="fa-solid fa-check done"></i></span>
-//                     <span class="icon"><i class="fa-solid fa-x delete"></i></span>
-//                     </div>
-//         `
+
+
