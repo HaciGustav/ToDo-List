@@ -60,6 +60,7 @@ body{
 input{
     width: calc(100% - 4.5rem);
     min-width: 10rem;
+    max-width: 30rem;
     display: inline-block;
     height: 100%;
     border:none;
@@ -81,7 +82,7 @@ input:focus{
     display: flex;
     flex-direction: column;
     font-weight: 600;
-    gap: 0.1rem;
+    gap: 0.5rem;
     
 }
 .task{
@@ -90,13 +91,14 @@ input:focus{
     color:rgba(255, 255, 255, 0.582);
     padding: 1rem;
     font-size: 1.2rem;
+    max-width: 35rem;
     word-wrap: break-word;
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .task-content{
-    word-wrap: break-word;
+    width: min(100% - 5rem);
 }
 .icon-wrap{
     width: 4rem;
