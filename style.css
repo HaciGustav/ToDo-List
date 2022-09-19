@@ -25,6 +25,7 @@ body{
     flex-direction: column;
     gap: 1rem;
     overflow: auto;
+    overflow-y: hidden;
     font-weight: 600;
     animation: falldown 1s ease-out 1;
 }
