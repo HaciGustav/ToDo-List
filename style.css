@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -165,6 +167,10 @@ ul li:last-child p::after{
     filter: blur(10px);
     /* border: 2px solid red; */
     box-shadow: 50px -10px 10px rgb(0, 0, 0) ;
+}
+/* For Javascript */
+.checked{
+    text-decoration: line-through;
 }
 
 
