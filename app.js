@@ -40,20 +40,12 @@ function addList (){
         iconDelete.className = "fa-solid fa-x delete"
         spanDelete.appendChild(iconDelete)
 
-
-
     }else{
         inputArea.setAttribute("placeholder", "Please enter something to do")
     }
 }
 
-
-
 addBtn.addEventListener("click", ()=>{
-    let taskParent = document.querySelector(".task-list")
-    let task = document.createElement("li")
-    task.className = "task"
-    
     
     if(inputArea.value){
         addList()
@@ -68,7 +60,6 @@ document.addEventListener("keydown", (e)=>{
     if(e.code == "Enter"){
         addBtn.click()}
 })
-
 
 taskParent.addEventListener("click", (e)=>{
     if(e.target.classList.contains("delete")){
@@ -88,6 +79,11 @@ window.onload = ()=>{
 }
 
 
+const newTask = {
+    id : new Date().getTime(),
+    completed: false,
+    text:inputArea.value
+}
 
 
 
